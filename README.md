@@ -11,8 +11,11 @@ Como a descrição das atividades estão em inglês, optei por deixar toda a apl
 Utilizei o Insomnia para fazer os teste na API. A API responde as seguintes requisições:
 
 GET    api/activity/list                      -> trás todas as atividades
+
 GET    api/activity/list?key_activity=chave   -> trás a atividade de chave especificada na URL
+
 POST   api/activity/create                    -> salva no banco de dados uma atividade vinda por POST de nome "key_activity" contendo a chave como valor
+
 DELETE api/activity/delete?key_activity=chave -> deleta uma atividade de chave especificada na URL
 
 OBS.: O usuário pode salvar uma atividade gerada aleatóriamente e deixar de salvar a mesma. Se na hora do sorteio apresentar uma atividade já salva em favoritos, a aplicação identifica e a apresenta como salva (ícone do coração preenchido), dando a opção do usuário deixar de salvar.

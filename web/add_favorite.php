@@ -1,5 +1,6 @@
 <?php
 	include_once "header.php";
+    include_once "conf/server.php";
 
 	$key_activity = $_GET["key_activity"];
 
@@ -16,18 +17,27 @@
             'content' => $content
         )
     ));
-    $contents = file_get_contents("http://localhost/hvex/api/activity/create", null, $context);            
+
+    $contents = file_get_contents($server . "api/activity/create", null, $context);            
     $return = json_decode($contents);
 
 	if ($return) {
 	    ?>
 		<script type="text/javascript">
 	    	swal("Successfully added!").then((value) => {
-				  window.location = "my_favorites.php";
+				  window.location = "random_activity.php";
 			});
 	    </script>
 	    <?php
-	}
+	}else{
+        ?>
+        <script type="text/javascript">
+            swal("Failed to add!").then((value) => {
+                  window.location = "index.php";
+            });
+        </script>
+        <?php
+    }
 
 	include_once "footer.php";
 ?>

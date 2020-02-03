@@ -3,7 +3,7 @@
 h1{
 	font-family: 'Roboto', sans-serif;
 	color: white;
-	font-size: 35px;
+	font-size: 40px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
@@ -33,4 +33,37 @@ table thead tr th,tbody tr td{
 	margin: 0px;
 	background-color: #17a2b8;
 	border-radius: 5px;
+}
+
+body{
+	background-color: #e0e0e0;
+}
+
+.shake:hover{
+	animation:shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+	transform:translate3d(0, 0, 0);
+	backface-visibility:hidden;
+	perspective:1000px;
+}
+
+@keyframes shake{10%, 90%{transform:translate3d(-1px, 0, 0);}
+20%, 80%{transform:translate3d(2px, 0, 0);}
+30%, 50%, 70%{transform:translate3d(-2px, 0, 0);}
+40%, 60%{transform:translate3d(2px, 0, 0);}
+}
+
+.button{
+	background-color: #009688;
+	padding: 25px;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	border-radius: 5px;
+	font-size: 25px;
+}
+
+.button:hover{
+	background-color: #17a2b8;
+	-webkit-transition: 0.3s;
+
 }

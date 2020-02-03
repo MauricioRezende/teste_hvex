@@ -1,5 +1,6 @@
 <?php
 	include_once "header.php";
+	include_once "conf/server.php";
 	$type = array();
 	array_push($type, "education");
 	array_push($type, "recreational");
@@ -14,7 +15,7 @@
 	<nav>
 		<div class="nav-wrapper">
 			<div class="col l12 m12 s12">
-				<a href="index.php" class="breadcrumb">Home</a> <!-- <i class="material-icons">reply</i>&nbsp; -->
+				<a href="index.php" class="breadcrumb">Home</a>
 				<span class="breadcrumb">Random activity</span>
 			</div>
 		</div>
@@ -24,7 +25,7 @@
 		<div class="card" style="border: solid 2px gray;">
 				<br />
 				<div class="center-align">
-					<button class="btn waves-effect waves-light" style="background-color: #04516b;" type="submit" name="raffle" >
+					<button class="btn waves-effect waves-light shake" style="background-color: #04516b;" type="submit" name="raffle" >
 						raffle activity
 			    		<i class="material-icons right">shuffle</i>
 			  		</button>
@@ -69,16 +70,17 @@
 				$key = $retorno->key;
 
 
-				$json_file = file_get_contents("http://localhost/hvex/api/activity/list?key_activity=" . $key);   
+				$json_file = file_get_contents($server . "api/activity/list?key_activity=" . $key);   
 				$json_str = json_decode($json_file, true);
 				$itens = $json_str['data'];
-
+				
 				$activityAdd = 0;
-				if ($itens != "No activity found!") {
+
+				if ($itens != "No activity found!" && $itens != NULL) {
 			    	$activityAdd = 1;
 				}
 				?>
-				<table>
+				<table class="responsive-table">
 					<thead>
 						<tr>
 							<th>Activity</th>
@@ -95,18 +97,15 @@
 							<?php
 							if($activityAdd == 0){
 							?>
-								<td><a href="add_favorite.php?key_activity=<?php echo $key; ?>" style="color:gray;"><i class="material-icons right tooltipped" data-position="top" data-tooltip="Add as favorite">favorite_border</i></a></td>
+								<td><a href="add_favorite.php?key_activity=<?php echo $key; ?>" style="color:gray;"><i class="material-icons right tooltipped shake" data-position="top" data-tooltip="Add as favorite">favorite_border</i></a></td>
 							<?php
 							}else{
 							?>
-								<td><a href="remove_favorite.php?key_activity=<?php echo $key; ?>" style="color:gray;"><i class="material-icons right tooltipped" data-position="top" data-tooltip="Remove as favorite">favorite</i></a></td>
+								<td><a href="remove_favorite.php?key_activity=<?php echo $key; ?>" style="color:gray;"><i class="material-icons right tooltipped shake" data-position="top" data-tooltip="Remove as favorite">favorite</i></a></td>
 							<?php
 							}
 							?>
 						</tr>
-						<!-- <tr>
-							<td><b>Participants:</b> <?php echo $participants; ?><br /><b>Type:</b> <?php echo $type; ?></td>
-						</tr> -->
 					</tbody>
 				</table>
 				<?php
@@ -116,7 +115,3 @@
 	</form>
 	
 <?php include_once "footer.php" ?>
-
-<?php
-	//var_dump(json_decode($retorno,1));
-?>

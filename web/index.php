@@ -1,24 +1,15 @@
 <?php include_once "header.php"; ?>
 	
-	<div class="card collection">
-	    <a href="random_activity.php" class="collection-item center-align"><b>Random activity</b></a>
-	    <a href="my_favorites.php" class="collection-item center-align"><b>My favorites</b></a>
+ 	<div class="col l12 m12 s12">
+	 	<a href="random_activity.php" >
+			<div class="button z-depth-2 shake">Random activity</div>
+		</a>
 	</div>
-	<div class="row">
-		<a href="random_activity.php">
-			<div class="col l6 m6 s12">
-				<div class="card-panel teal">
-					<span class="white-text center-align">Random activity</span>
-				</div>
-		    </div>
+	<div class="row"></div>
+	<div class="col l12 m12 s12">
+	 	<a href="my_favorites.php" >
+			<div class="button z-depth-2 shake">My favorites</div>
 		</a>
-		<a href="my_favorites.php">
-		    <div class="col l6 m6 s12">
-				<div class="card-panel teal">
-					<span class="white-text center-align">My favorites</span>
-				</div>
-		    </div>
-		</a>
- 	</div>
+	</div>
 	
 <?php include_once "footer.php"; ?>

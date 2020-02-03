@@ -1,5 +1,6 @@
 <?php
 	include_once "header.php";
+    include_once "conf/server.php";
 	
 	$key_activity = $_GET["key_activity"];
 
@@ -17,7 +18,7 @@
         )
     ));
 
-    $contents = file_get_contents("http://localhost/hvex/api/activity/delete?key_activity=" . $key_activity, null, $context);            
+    $contents = file_get_contents($server . "api/activity/delete?key_activity=" . $key_activity, null, $context);            
     $return = json_decode($contents);
 
 	if ($return) {
@@ -28,7 +29,15 @@
 			});
 	    </script>
 	    <?php
-	}
+	}else{
+        ?>
+        <script type="text/javascript">
+            swal("Failed to removed!").then((value) => {
+                  window.location = "index.php";
+            });
+        </script>
+        <?php
+    }
 
 	include_once "footer.php";
 ?>

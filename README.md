@@ -10,9 +10,9 @@ Dentro da pasta "web", na pasta "conf", há um arquivo chamado "server.php". Nes
 
 Utilizei o Insomnia para fazer os teste na API. A API responde as seguintes requisições:
 
-GET    api/activity/list                      -> trás todas as atividades;
+GET    api/activity/listAll                      -> trás todas as atividades;
 
-GET    api/activity/list?key_activity=chave   -> trás a atividade de chave especificada na URL;
+GET    api/activity/listById?key_activity=chave   -> trás a atividade de chave especificada na URL;
 
 POST   api/activity/create                    -> salva no banco de dados uma atividade vinda por POST de nome "key_activity" contendo a chave como valor;
 

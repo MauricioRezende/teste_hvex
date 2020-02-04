@@ -70,7 +70,7 @@
 				$key = $retorno->key;
 
 
-				$json_file = file_get_contents($server . "api/activity/list?key_activity=" . $key);   
+				$json_file = file_get_contents($server . "api/activity/listById?key_activity=" . $key);   
 				$json_str = json_decode($json_file, true);
 				$itens = $json_str['data'];
 				

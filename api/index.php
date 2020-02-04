@@ -3,7 +3,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 require_once './class/Activity.php';
 
-class Rest
+class Api
 {
 	public static function open($request)
 	{
@@ -22,13 +22,13 @@ class Rest
 			if (class_exists($calss)) {
 				if (method_exists($calss, $function)) {
 					$method = $_SERVER["REQUEST_METHOD"];
-					if($method === "GET" && $function == "list" && isset($_GET["key_activity"])){
+					if($method === "GET" && $function == "listById" && isset($_GET["key_activity"])){
 						$activity = new Activity();
 						$return = $activity->listById($_GET["key_activity"]);
 					}
-					if($method === "GET" && $function == "list" && !isset($_GET["key_activity"])){
+					if($method === "GET" && $function == "listAll"){
 						$activity = new Activity();
-						$return = $activity->list();
+						$return = $activity->listAll();
 					}
 					if($method === "POST" && $function == "create"){
 						$activity = new Activity();
@@ -52,5 +52,5 @@ class Rest
 }
 
 if (isset($_REQUEST)) {
-	echo Rest::open($_REQUEST);
+	echo Api::open($_REQUEST);
 }

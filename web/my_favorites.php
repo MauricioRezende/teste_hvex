@@ -15,7 +15,7 @@
   		<?php
   		include_once "functions/functions.php";
 
-  		$json_file = file_get_contents($server . "api/activity/list"); 
+  		$json_file = file_get_contents($server . "api/activity/listAll"); 
 		$json_str = json_decode($json_file, true);
 		$itens = $json_str['data'];
 		

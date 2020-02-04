@@ -25,7 +25,7 @@
 			return $results;
 		}
 
-		public function list(){
+		public function listAll(){
 			include_once "./conf/connection.php";
 
 			$sql = "SELECT key_activity,date FROM favorite_activity";

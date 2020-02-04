@@ -18,7 +18,10 @@ POST   api/activity/create                    -> salva no banco de dados uma ati
 
 DELETE api/activity/delete?key_activity=chave -> deleta uma atividade de chave especificada na URL.
 
-OBS.: 
+OBS.:
+
 1 - Como a descrição das atividades estão em inglês, optei por deixar toda a aplicação também em inglês, para não ficar parte em português e parte em inglês.
+
 2 - O usuário pode salvar uma atividade gerada aleatóriamente e deixar de salvar a mesma. Se na hora do sorteio apresentar uma atividade já salva em favoritos, a aplicação identifica e a apresenta como salva (ícone do coração preenchido), dando a opção do usuário deixar de salvar.
+
 3 - Iria fazer a aplicação utilizando React, porém, como ainda estou aprendendo, optei por utilizar PHP, que tenho mais conhecimento, evitando assim um atraso na entrega.
